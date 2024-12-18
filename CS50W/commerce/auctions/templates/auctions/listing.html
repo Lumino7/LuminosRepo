@@ -1,0 +1,133 @@
+{% extends "auctions/layout.html" %}
+{% load humanize %}<!-- lib for intcomma-->
+
+{% block body %}
+
+{% if info_messages %}
+<div class="alert alert-info" role="alert">
+    <ul class="p-0 m-0">
+        {% for message in info_messages %}
+        <li class="list-unstyled">{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% if success_messages %}
+<div class="alert alert-success" role="alert">
+    <ul class="p-0 m-0">
+        {% for message in success_messages %}
+        <li class="list-unstyled">{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% if error_messages %}
+<div class="alert alert-danger" role="alert">
+    <ul class="p-0 m-0">
+        {% for message in error_messages %}
+        <li class="list-unstyled">{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% if warning_messages %}
+<div class="alert alert-warning" role="alert">
+    <ul class="p-0 m-0">
+        {% for message in warning_messages %}
+        <li class="list-unstyled">{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            {% if listing.image_URL %}
+            <img src="{{ listing.image_URL }}" alt="{{ listing.name }}" class="img-fluid">
+            {% else %}
+            <div class="bg-light d-flex align-items-center justify-content-center" style="height: 300px;">
+                No Image Available
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <h2>{{ listing.name }}</h2>
+
+            {% if listing.category %}
+            <p class="text-muted">{{ listing.get_category_fullname }}</p>
+            {% endif %}
+
+
+            <p>{{ listing.description }}</p>
+            <p class="text-primary">Price: €{{ listing.get_current_price|intcomma }} ({{ listing.get_bid_count }} bids)
+            </p>
+
+            {% if user.is_authenticated %}
+
+            {% if listing.is_active %}
+            <div class="mb-4">
+                <form method="post" action="{% url 'bid' listing.id %}" class="form-inline">
+                    {% csrf_token %}
+                    <span class="col-1">€</span>
+                    <div class="p-0 col-4">{{ bid_form }}</div>
+                    <input type="submit" value="Bid" class="btn btn-primary ml-2 col-2">
+                </form>
+            </div>
+
+            <div class="mb-4">
+                {% if is_in_watchlist %}
+                <form method="POST" action="{% url 'watchlist_with_id' listing.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Remove from Watchlist</button>
+                </form>
+                {% else %}
+                <form method="POST" action="{% url 'watchlist_with_id' listing.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success">Add to Watchlist</button>
+                </form>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if is_created_by_user and listing.is_active %}
+            <form method="POST" action="{% url 'listing' listing.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Close Auction</button>
+            </form>
+            {% endif %}
+            {% endif %}
+        </div>
+        <div class="col-12">
+            <hr class="mt-4 mb-4" />
+        </div>
+        <div class="col-12">
+            <h4 class="mb-4">Comments ({{ listing.get_comment_count }})</h4>
+            {% if user.is_authenticated %}
+            <div class="mb-4">
+                <form method="POST" action="{% url 'comment' listing.id %}">
+                    {% csrf_token %}
+                    {{ comment_form }}
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary mt-2">Save</button>
+                    </div>
+                </form>
+            </div>
+            {% endif %}
+            {% for comment in comments %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted small">{{ comment.created_by.username }} posted on
+                        {{ comment.created_at|date }} at {{ comment.created_at|time }}</h6>
+                    <p class="card-text">{{ comment.comment }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

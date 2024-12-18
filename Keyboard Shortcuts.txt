@@ -1,0 +1,7 @@
+CTRL K+S = Keyboard Shortcuts
+CTRL L = select line
+CTRL SHIFT ALT UP/DOWN = copy line
+ALT UP/DOWN = move line
+CTRL D = Select next occurence
+CTRL SHIFT L = select all occurence
+CTRL K+J = Unfold All

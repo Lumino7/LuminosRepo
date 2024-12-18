@@ -1,0 +1,11 @@
+27Oct
+  Learned about Pinia and created a Pinia instance.
+  Created components for each "component" of the project (e.g. modals, etc)
+
+28Oct: Implemented modal toggle using state with Pinia
+01 Nov: Implemented Modal tabs and customization.
+06-10Nov: Did a review of the course so far.
+15Nov: created custom plugin (custom vee-validate plugin)
+19Nov: learned how to use vee-validate. Validated name, email, age, password and confirm password fields for register modal.
+21Nov: Validated country and tos. Slot properties. Rendering multiple errors for password.
+22Nov: Form initial values. Custom Error messages. Validation triggers. Alerts. Refactored Login and Registration forms to separate child components.

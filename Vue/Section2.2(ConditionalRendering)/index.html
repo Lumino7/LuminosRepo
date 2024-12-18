@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app">
+
+    <p v-if="mode == 1">Showing v-if directive content</p> <!-- conditional element rendering -->
+    <!-- <p v-else-if="mode == 2">v-else-if</p> v-else can only be used below an element with v-if directive. error otherwise. -->
+    <template v-else-if="mode == 2"> <!-- template: special Vue tag that doesn't render the tag itself, will only render the p elements in this case.
+      This allows you to make multiple conditional elements without having to put it in a div tag, which will alter the html structure.-->
+      <p>Bonus Content</p>
+      <p>v-else-if</p>
+    </template>
+
+
+    <p v-else>v-else</p> <!--condition not required as this will render if all conditions above doesn't apply.-->
+
+    <i v-show="mode == 1">v-show</i> <!--the element still renders but is given the display:none property.-->
+
+    <select v-model="mode">
+      <option value="1">v-if</option>
+      <option value="2">v-else-if</option>
+      <option value="3">v-else</option>
+    </select>
+
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+sort1 uses: Bubble Sort
+
+How do you know?: It was the quickest to process the already sorted file.
+
+sort2 uses: Merge Sort
+
+How do you know?: It was the quickest sorting the large lists.
+
+sort3 uses: Selection Sort
+
+How do you know?: It was the last remaining option.
+
+
+
+
+sort1
+random5000:
+random10000:0.394s
+random50000:
+sorted5000:
+sorted10000: 0.002s
+sorted50000:
+reversed5000:
+reversed10000:0.203s
+reversed50000:
+
+sort2
+random5000:
+random10000:0.115s
+random50000:1.78s
+sorted5000:
+sorted10000:0.093s
+sorted50000:
+reversed5000:
+reversed10000:0.115s
+reversed50000:
+
+sort3
+random5000:
+random10000: 0.223s
+random50000: 3.9s
+sorted5000:
+sorted10000: 0.166s
+sorted50000:
+reversed5000:
+reversed10000: 0.163s
+reversed50000:

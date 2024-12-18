@@ -1,0 +1,10 @@
+Summary
+Arrays: Great for direct access, but costly for insertion/deletion in the middle.
+Singly Linked Lists: Good for dynamic sizes and efficient insertions/deletions at the head, but costly for access and operations at the tail.
+Doubly Linked Lists: Similar advantages as singly linked lists but with efficient bidirectional traversal and operations at both ends, though they use more memory due to the additional pointers.
+Hash Tables: Excellent average-case time complexity for basic operations but can suffer from collisions.
+Binary Trees: Useful for hierarchical data representation
+Binary Search Trees: Provide efficient operations for balanced trees but can degrade in performance if not balanced.
+Tries: Ideal for prefix-based operations with efficient search, insertion, and deletion based on the length of strings.
+Queues: Ideal for scenarios where you need to process elements in the order they arrive (FIFO), such as in scheduling tasks or buffering.
+Stacks: Suitable for scenarios requiring last-in, first-out processing, such as parsing expressions or backtracking algorithms.

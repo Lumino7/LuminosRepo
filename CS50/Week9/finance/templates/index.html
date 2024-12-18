@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h2>Stock Index</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.current_shares }}</td>
+                <td>{{ stock.price | usd }}</td>
+                <td>{{ stock.value | usd }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Cash Balance: {{ cash | usd }}</h2>
+    <form action="/" method="post">
+        <div class="mb-3">
+            <input autofocus class="form-control mx-auto w-auto" id="addcash" name="addcash" placeholder="Amount" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Add Cash</button>
+    </form>
+    <h2>Grand Total: {{ gtotal | usd }}</h2>
+{% endblock %}

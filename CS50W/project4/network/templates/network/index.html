@@ -1,0 +1,22 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <div class="container col-6 py-4" id="post-form-container">
+            <form method="post" action="/posts/new" id="post-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Save Post" class="d-block btn btn-primary ml-auto">
+            </form>
+        </div>
+    {% endif %}
+
+<div id="profile"></div>
+<div id="posts"></div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        const currentUserId = parseInt('{{ request.user.id }}', 10) || null;
+    </script>
+{% endblock %}

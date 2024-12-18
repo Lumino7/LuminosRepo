@@ -1,0 +1,74 @@
+Register function/
+forms /
+login page /
+login logic, copy proj4 /
+index
+>navbar
+    style hidden on login, show on others/
+>empty schedule table /
+    datepicker /
+>popTable function, make a separate fetchdata function? /
+>response_data not working /
+>clear table after choosing a different week, and after saving a sched/
+
+>updateshift()/
+
+>JAVASCRIPT CLOSURES
+
+
+
+
+>removeShift()/
+>show on the modal the date being modified/created /
+>reset all values when modal opens if no shift/
+>disable oncall when off/
+>clear time values when off is ticked/
+>close modal on save if no error/
+>way to display off and oncall on frontend/
+>database/
+>only a manager should be able to change a schedule/
+>email functionality/
+
+mobile responsiveness?
+fix email
+
+
+extras:
+logged in as ____ beside logout in the navbar/
+
+mahal's ideas:
+>select current week by default/
+
+
+
+
+>support adding holidays and off/
+>favicon/
+
+
+future:
+>'Shift times' as an entity that manager can create then select
+>privacy settings e.g. disabling users to see others' shifts
+>shift requests
+>profiles
+
+video:
+>login as bryz
+    >navbar and contents
+    >will automatically take us to the current week's sched
+    >table containing all members of the department and theirs shifts for the week, with the
+        current user's line highlighted.
+    >prev and next
+    >date selector button, can select mon of every week.
+
+>register a user
+
+>login as manager
+    >each cell are now buttons for creating, editing, or deleting shifts.
+    >when clicked, a modal containing the shift form pops up.
+    >with input fields for shift start and end, on-call and off.
+    >off toggle
+    >create a shift
+    >edit and delete a shift
+
+>email functionality

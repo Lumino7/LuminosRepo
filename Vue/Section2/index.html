@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VueJS Course</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app" v-cloak> <!--v-cloak is an example of a vue directive, this one deletes itself once Vue is done mounting, this way the element is not diplayed while Vue is not mounted yet-->
+      <!-- <p>{{ fullName() }}</p> --> <!-- NOT efficient as this gets called whenever any data property is updated, as Vue reloads the template every time. -->
+      <p>{{ fullName }}</p> <!-- No () for computed properties -->
+      <p>
+        <a :href="url">Google</a> <!--:href is shorthand for v-bind:href. the v-bind directive allows expressions to be used for attribute values-->
+      </p>
+      <label>First Name</label>
+      <input type="text" v-model.lazy.trim="firstName" /> <!--v-model directive synchronizes input values with the data properties in their Vue instance (two-way data binding)-->
+      <!-- .lazy modifier makes it so that the model is only updated once the user clicks away from the input. .trim removes white space. v-model has 3 modifiers: .number, .lazy, and .trim. -->
+
+      <label>Middle Name</label>
+      <input type="text" @keyup.enter="updateMiddleName"> <!-- .enter key event modifier, only listens to enter key -->
+
+      <label>Last Name</label>
+      <input type="text" :value="lastName" @input.prevent="updateLastName('Last name event triggered!', $event)" /> <!-- $event is a special Vue variable that represents the event object. -->
+      <!-- .prevent is an event modifier equivalent to event.preventDefault -->
+
+      <label>Age</label>
+      <input type="number" v-model.number="age"> <!-- .number modifier converts the input value into a number (all input values are strings by default) -->
+      <p>{{ age }}</p>
+      <button type="button" @click="increment">Increment</button> <!-- @ is short for v-on:, which is a directive that can be used on any JS event type, the value can be either an expression or a method-->
+      <button type="button" @click="age--">Decrement</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+NPM
+-Node Package Manager
+-For installing packages (libraries and tools), equivalent to PIP in Python.
+-Automatically handles the dependencies of the project, and their dependencies, and ensures that the correct versions of them are installed
+
+-NodeJS needs to be installed
+
+-npmjs.com: repository for npm modules
+
+package.json
+contains app info, dependencies and their versions, also npm scripts.
+
+npm init
+run in your project folder. Sets up your npm project and creates a package.json file.
+
+npm init –y
+skip all the prompts and use the default values.
+
+npm install <package name>
+to install a package to your project as a local package.
+
+const <package name> = require(‘<package name>’)
+put this at the top of your js file (e.g. app.js) to use the module.
+
+<package name>.<method name>
+to use methods in the module.
+
+-when pushing a project, git ignore the node_modules folder as this contains all the modules (and it can get big as it also contains dependencies of dependencies). There’s no need to do so because they will be automatically installed to the clone using the package.json.
+
+npm install
+installs all dependencies in package.json.
+
+npm install --dev <package name>
+install a development dependency i.e. only needed during development.
+
+npm install --production
+exclude development dependencies.
+
+npm uninstall <package name>
+to uninstall a package.
+
+npm install <package name>@<version number>
+to reinstall to a specific version.
+
+npm update <package name>
+to update to latest version, depending on symbol in the package.json.
+
+
+
+Semantic Versioning:
+
+MAJOR.MINOR.PATCH
+
+Major: Breaks the API
+Minor: Backwards-compatible new features.
+Patch: Backward-compatible bug fixes.
+
+When a value updates, the right hand side value returns to 0.
+
+Symbols in package.json:
+^ will update to latest minor version.
+~ will update to latest patch.
+no symbol: will stay at that specific version.
+* and no version number: will update to the absolute latest version.
+
+
+
+
+npm install -g <package name>
+installs a package as a global package. Installs it in the pc instead of the project’s node_modules folder. Also won’t be in package.json. These can be used outside your project.
+
+npm root -g
+returns the location of the global packages.
+
+Npm uninstall -g <package name>
+to uninstall a global package.
+
+
+
+
+
+
+

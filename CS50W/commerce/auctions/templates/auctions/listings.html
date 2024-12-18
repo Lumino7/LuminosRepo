@@ -1,0 +1,39 @@
+{% extends "auctions/layout.html" %}
+{% load humanize %}
+
+{% block body %}
+<h2>{{ title }}</h2>
+
+{% if listings|length == 0 %}
+<p>No listings found.</p>
+{% else %}
+
+{% for listing in listings %}
+<a href="/listing/{{ listing.id }}" class="container-fluid border row my-3"
+    style="color:inherit; text-decoration:none;">
+    <div class="col-2">
+        {% if listing.image_URL %}
+        <img src="{{ listing.image_URL }}" alt="{{ listing.name }}" class="img-fluid">
+        {% else %}
+        <div class="bg-light d-flex align-items-center justify-content-center h-100 w-100">
+            No Image Available
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-10">
+        <h3>{{ listing.name }}</h3>
+
+        <p class="text-primary">Price: €{{ listing.get_current_price|intcomma }} ({{ listing.get_bid_count }} bids)</p>
+
+        <p>Description: {{ listing.description }}</p>
+
+        {% if listing.category %}
+        <p class="text-muted">{{ listing.get_category_fullname }}</p>
+        {% endif %}
+    </div>
+</a>
+{% endfor %}
+{% endif %}
+
+
+{% endblock %}

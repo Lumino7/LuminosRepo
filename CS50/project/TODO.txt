@@ -1,0 +1,6 @@
+implement code to populate schedule in mgrpage --SORT THE LOOPS
+
+
+
+
+phpliteadmin rostr.db

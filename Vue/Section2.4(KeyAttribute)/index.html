@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app">
+    <button type="button" class="move" @click="move">Move to Bottom</button>
+    <div class="card" v-for="person in people" :key="person.name"> <!--key attribute gives a unique identifier to each element in the loop.
+      Prevents problems when updating elements in the object. In this case, person.name is used as the key.
+      Keys are only stored in the VDOM. Therefore, it's not accessible in the console.-->
+      <h3>{{person.name}}</h3>
+      <p>{{person.message}}</p>
+      <input type="text"> <!-- without key attributes, this input field would stay to whatever's on the top in the list.-->
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

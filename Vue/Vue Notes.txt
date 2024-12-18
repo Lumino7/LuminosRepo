@@ -1,0 +1,59 @@
+Vue creates a virtual DOM, A JSON version of the actual DOM. Vue makes changes to these before applying it to the actual template.
+This makes it faster and less costly as JSON is lightweight compared to the actual template (that has all the methods and properties).
+
+Under the hood, Vue uses the JS Proxy objects to implement reactivity with it's data.
+
+Vue is also available in no-compiler version. 30%smaller, so faster loading time. Referred to as runtime-only build. This one doesn't make a virtual DOM.
+For this one, render functions inside the Vue instance are needed.
+
+scaffolding a project using the create-vue tool:
+npm init vue@latest
+then move to that created folder
+then
+npm install
+
+Vite= Vue's current default build tool, development server and bundler.
+
+Vue uses $ prefix on it's special methods.
+
+installing tailwind to a project: https://tailwindcss.com/docs/guides/vite
+npm i -D tailwindcss postcss autoprefixer
+(postcss and autoprefixer are needed by tailwind) then
+npx tailwindcss init -p
+(generates config files)
+
+config files are usually in the root directory of the project.
+
+.vue files in a scaffolded project are single-file components that contain the:
+    HTML structure in <template>
+    JS Code in <script>
+    and CSS in <style>
+    these are then compiled into a JS object.
+
+to run a project:
+npm run dev
+
+src folder: source code, processed by Vite.
+public folder: not processed by Vite, directly copied to the final build output (dist) with the same structure.
+
+Sending data from parent to child components: props.
+vice versa: emit functions, slot properties.
+
+Using plugins:
+1. Install package: npm i <plugin name>
+2. Register plugins in the main.js Vue instance. Opt: create a custom plugin in includes folder.
+
+Pinia: Vue plugin for state managament. contains data that is available to all components.
+adding stores:
+1. make a store file in stores.
+2. use the store in a component as needed.
+
+Vee Validate: plugin for form validation.
+vee-validate rules: https://vee-validate.logaretm.com/v4/guide/global-validators#vee-validaterules
+to use built-in vee validate rules, install it first: npm install @vee-validate/rules
+1. install and register vee-validate plugin.
+2. import components and others from vee-validate, replace Form and Field tags with them.
+3. install @vee-validate/rules and import the necessary rules. It's an add-on, so no need to register as plugin.
+4. make a defineRules.
+5. Use the rules on the vee-forms.
+6. Error message generation. And custom error message generation.

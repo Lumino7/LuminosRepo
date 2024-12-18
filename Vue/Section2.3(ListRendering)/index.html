@@ -1,0 +1,29 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="bird in birds" :class="bird">{{bird}}</li> <!--can also use the bird variable in the attributes.-->
+    </ul>
+
+    <hr/>
+
+    <ul>
+      <li v-for="person in people">
+        <div v-for="(value, key) in person">{{key}}:{{value}}</div>
+      </li>
+    </ul>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

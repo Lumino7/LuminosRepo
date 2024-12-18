@@ -1,0 +1,19 @@
+#created-by:hover {
+    text-decoration: underline;
+    color: blue;
+  }
+
+#prev, #next {
+    text-decoration: underline;
+    color: blue;
+}
+
+#prev:hover, #next:hover {
+    opacity: 0.75
+}
+
+.d-flex {
+    gap: 8px;
+}
+
+

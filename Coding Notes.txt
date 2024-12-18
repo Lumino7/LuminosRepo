@@ -1,0 +1,283 @@
+SOFDEV REALLY IS FOR ME:
+https://chat.openai.com/share/90c11263-2553-40c0-ae0a-52b96fb49897
+
+
+CS50 Completion Rate:
+https://cs50.medium.com/this-was-cs50x-82be0995862b#:~:text=CS50x's%20%E2%80%9Ccompletion%20rate%E2%80%9D%20(whereby,out%20of%20100%2C953%20who%20engaged.
+
+Remote Companies:
+https://docs.google.com/spreadsheets/u/0/d/1dG9fRiKC5IoEZWJJQY4Z5GiLBwu9FiEajRUwS1Sl8pg/htmlview?pli=1#
+
+expression vs statements
+expression: variables, operators, values
+x+y, x>10
+statement: perform actions
+x=x+y, if x>10
+
+COMMENTS
+
+CTRL/ to turn a line into a comment
+
+<!-- This is an HTML comment -->
+
+/* This is a CSS comment */
+
+// This is a single-line JavaScript comment
+
+/*
+   This is a multi-line
+   JavaScript comment
+*/
+
+# This is a single-line Python comment
+
+"""
+   This is a multi-line
+   Python comment
+"""
+
+
+________________________________________
+
+
+
+
+
+
+HTTP
+
+Status Codes:
+1xx = informational
+2xx = Success
+3xx = Redirection
+4xx = Client Error
+5xx = Server Error
+
+
+
+
+
+________________________________________
+
+
+
+
+JS FEATURES NOT IN PYTHON
+
+-Not indent sensitive (just for readability purposes)
+- var, let, const variables. (var is not recommended anymore because it can be accessed outside of it's scope and can also be redeclared)
+-use const for declaring arrays and objects. const means constant reference to a value, not constant value, therefore you can still change the contents of the array/object, but you can't reassign it to a different one.
+-for <x> of <list> loop: iterates over values of objects.
+-Switch statements.
+-dictionaries are called objects. Although in JS objects, you can declare methods.
+
+
+
+________________________________________
+
+
+
+
+GITHUB
+
+Make a new remote repo: done in Github
+
+git init = Initialize a Git repository in the current directory (turn it into a local repo)
+
+
+Github Flow:
+Create a new Branch
+Make changes and add Commits
+Open a Pull Request
+Review
+Deploy
+Merge
+
+
+Staged files are files being tracked by git. i.e. added to the repo
+
+fork vs git clone
+clone = a full copy of a repository that can't make changes to the original. You can fork in github website.
+
+
+git remote add origin https://github.com/<username>/<repo-name>.git =
+To link your local repository with your GitHub repository. Replace <username> with your GitHub username and <repo-name> with the name of your GitHub repository. (do this after making a commit). After this, push.
+
+branches are just pointers to a specific commit.
+
+HEAD is a pointer to the currently checked-out commit. ie. what commit you're working on top of.
+
+origin = the default name Git gives to the remote repository from which the local repository was initially cloned. It's essentially a shorthand name for the URL of the remote repository.
+
+upstream = the repo you forked from.
+ie.
+origin = the fork
+upstream = the forked.
+
+git clone <url> = copy all the files and commits from the remote repository into the local directory. Also creates a remote branch on your local repo: origin/main.
+Remote branches are read-only. If you checkout to it, you will be in a detached HEAD state.
+ie if you make commits, it won't be attached to any branch and it can get lost/ garbage collected. So, origin/main will only update if you git fetch or pull.
+
+git add <filename> = make a file be tracked by git, and saved on the next commit.
+
+git add * =  add all the files in the current directory
+
+git add --all = adds all files in the directory and subdirectories, and will add all new, modified and deleted files (the deletion will be tracked).
+
+git commit -m "<description>" = save a commit (a "snapshot") of your project, in your pc (local repo).
+
+git commit -am "<description>" = add all the files that were changed and make a commit as well.
+
+git log = history of commits for the current branch.
+
+git diff <remote>/<branch>
+=To compare your repo to the origin.
+
+git status = check which branch you currently are, and how your local repo compares to the remote repo.
+
+git push <remote> <branch>
+= upload your version of the repo to github. <remote> is the name of the remote repo. Can also be a remote repo URL. <branch> is the branch you want to push.
+e.g. git push origin master
+master is the default name for the main/stable branch.
+If the remote branch name is diff:
+git push origin local_branch_name:remote_branch_name
+
+git push --set-upstream <remote> <branch>
+=sets the upstream branch to the <branch> under the <remote> repo.  This way, you can now run git push without specifying the repo and the branch.
+
+
+git pull <remote> <branch> = apply the latest version of a remote repo to your local repo. A combination of git fetch and git merge origin/main. The repo and branch can be omitted if you are already tracking a remote repo by set upstream.
+
+git fetch = downloads new commits from remote repo and makes origin/main to point to the latest one. In short, updates the origin/main.
+You can also do:
+git fetch <remote> <branch>
+
+git merge <branch> = attempts to combine the changes of <branch> to the current branch, making a new commit if successful (no merge conflicts). <branch> still exists with all it's commits unless you delete it.
+
+git reset -- hard <commit hash> = revert to an older commit using a commit hash, discarding the commits in between, as if they never happened.
+
+git revert <commit_hash>=   take a previous commit and add it as a new commit, keeping the log intact.
+
+git reset --hard origin/master = resets the current branch to the state of the remote branch origin/master.
+
+git branch = check which branch you are currently on and what other branches are there.
+
+git branch <branch name> = create a new branch only.
+
+git checkout -b <name> = create a new branch and switch to that branch. (Assign the current commit to a branch)
+
+git checkout <name> = switch to a specific branch.
+
+git branch -f <branch_to_be_moved> <commit>
+=to make a branch point to a specific commit. (Can’t be done for current branch.) <commit> can be:
+	-  a commit hash
+	- <branch> ^ = move up in commit history by number of carets
+	- <branch> <branch ~#> = where # is how many commits up in commit history you would like to move.
+
+git rebase <destination_branch> <branch> = moves all the commits of <branch> into the end of <destination_branch>. <destination_branch> stays pointing to where it was, the rebased branch now points to the end of the commits which is now connected to <destination_branch>. <branch> can be omitted if you want to move the current branch.
+
+git pull –rebase =
+Combination of git fetch and git rebase. Does git fetch, and then rebases the current branch to it.
+
+git rebase -i <branch> =
+Interactive rebase, allows you to pick, and reorder commits
+
+pull request = requesting the repo owner to pull your Github repo and merge it to theirs.
+
+
+WHEN CHATGPT WAS WRONG:
+https://chat.openai.com/share/1f9a8e6f-4cc2-4a1c-9d43-104eb31dbbde
+
+
+
+
+
+
+
+
+
+
+________________________________________
+
+
+
+DJANGO
+
+Each Project is made of multiple Apps.
+Each App can have multiple URLs, each lead to different views (logic).
+The database is defined by models, each represent a table within the database.
+Forms, which can be used in the templates by passing them through the view, are based on models.
+HTML template passes the URL (along with arguments) -> URL.py transfers it to a specific view (along with arguments stored in the URL itself -after the /) -> views.py handles the logic, and if applicable renders a template.
+
+fuser -n tcp 8000 = to check what process is currently using port 8000 then
+kill -9 <process number>
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+Django admin: add /admin to url
+
+
+
+________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUOTATION MARK CONVENTION
+
+Use single quotes when working in languages that prefer them or when you need to include double quotes within your string.
+
+Use double quotes when working in languages that prefer them or when you need to include single quotes within your string.
+
+Use triple quotes for multi-line strings or docstrings in languages that support this syntax.
+
+
+
+CASE CONVENTION
+camelCase : JS, Java, C#, Swift
+PascalCase: Java, C#, Pascal
+snake_case: Python, Ruby, Rust
+kebab-case: CSS, HTML
+
+WHEN TO CREATE FUNCTIONS
+
+Reusability: If a specific task or piece of functionality is needed in multiple places in your code, it's a strong indicator that you should create a function. Functions allow you to encapsulate a task or operation, making it easy to reuse that code without duplicating it.
+
+Complexity: If a block of code becomes too long or too complex, (ie comprising of multiple lines) it's a sign that you should consider breaking it down into smaller functions. This improves code maintainability and reduces the risk of errors.
+
+callback function: functions that are used as arguments to another function
+
+callback: defining a function that uses a callback function.
+
+
+Making a vid presentation:
+1. Plan the features you want to present and the order they will be presented.
+2. Make the screen recordings first.
+3. Make the corresponding script.
+4. Make voice recordings.
+5. Combine them.
+
+
+TO LEARN:
+
+Frontend Master from beb
+Make a Portfolio Website
+React, Vue (frontend) https://youtu.be/4deVCNJq3qc?si=Fhw_Pw50lX6xfm8y
+ExpressJS(backend)
+CI/CD, Automated Testing
+Agile
+Hosting your app
+Offline VSCode

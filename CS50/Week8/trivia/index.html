@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+        // TODO: Add code to check answers to questions
+        let cbutton = document.getElementById("correctans");
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector("#correctans").addEventListener('click', function (event) {
+                document.getElementById("correctans").style.backgroundColor = 'green';
+                document.getElementById("ansprompt").innerHTML = "Correct!";
+                event.preventDefault();
+            })
+            const nodelist = document.querySelectorAll(".wrongans");
+            for (let i = 0; i < nodelist.length; i++) {
+                nodelist[i].addEventListener('click', function (event) {
+                event.target.style.backgroundColor = 'red';
+                document.getElementById("ansprompt").innerHTML = "Incorrect.";
+                event.preventDefault();
+                })
+                }
+
+            document.querySelector("#submit").addEventListener('click', function (event) {
+                if (document.querySelector("#input").value == "1") {
+                    document.getElementById("input").style.backgroundColor = "green";
+                    document.getElementById("ansprompt2").innerHTML = "Correct!";
+                } else {
+                    document.getElementById("input").style.backgroundColor = "red";
+                    document.getElementById("ansprompt2").innerHTML = "Incorrect.";
+                }
+                event.preventDefault();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <!-- TODO: Add multiple choice question here -->
+            <h3>
+                What was the best-selling PS1 game?
+            </h3>
+            <p id="ansprompt"></p>
+            <button type="button" class="wrongans">
+                Crash Bandicoot 3
+            </button>
+            <button type="button" id="correctans">
+                Gran Turismo
+            </button>
+            <button type="button" class="wrongans">
+                Metal Gear Solid
+            </button>
+            <button type="button" class="wrongans">
+                Final Fantasy VII
+            </button>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <!-- TODO: Add free response question here -->
+            <h3>
+                How much mB is a PS1 memory card?
+            </h3>
+            <p id= "ansprompt2"></p>
+            <input id="input" type="number">
+            <button type="submit" id="submit">Submit</button>
+        </div>
+    </div>
+</body>
+
+</html>
