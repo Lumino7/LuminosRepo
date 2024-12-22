@@ -101,13 +101,13 @@ clone = a full copy of a repository that can't make changes to the original. You
 
 
 git remote add origin https://github.com/<username>/<repo-name>.git =
-To link your local repository with your GitHub repository. Replace <username> with your GitHub username and <repo-name> with the name of your GitHub repository. (do this after making a commit). After this, push.
+To assign a remote repo as the origin. Replace <username> with your GitHub username and <repo-name> with the name of your GitHub repository. (do this after making a commit). After this, push.
 
 branches are just pointers to a specific commit.
 
-HEAD is a pointer to the currently checked-out commit. ie. what commit you're working on top of.
+HEAD is a pointer to the currently checked-out commit ie. what commit you're working on top of.
 
-origin = the default name Git gives to the remote repository from which the local repository was initially cloned. It's essentially a shorthand name for the URL of the remote repository.
+origin = shorthand name for the URL of the remote repository.
 
 upstream = the repo you forked from.
 ie.
@@ -135,12 +135,17 @@ git diff <remote>/<branch>
 
 git status = check which branch you currently are, and how your local repo compares to the remote repo.
 
+git remote -v = check what is your remote repo.
+
 git push <remote> <branch>
 = upload your version of the repo to github. <remote> is the name of the remote repo. Can also be a remote repo URL. <branch> is the branch you want to push.
 e.g. git push origin master
 master is the default name for the main/stable branch.
 If the remote branch name is diff:
 git push origin local_branch_name:remote_branch_name
+
+1st time pushing to remote needs a personal access token (PAT) - generated in github developer options.
+git push https://<username>:<PAT>@github.com/<username>/<repo-name>.git
 
 git push --set-upstream <remote> <branch>
 =sets the upstream branch to the <branch> under the <remote> repo.  This way, you can now run git push without specifying the repo and the branch.
@@ -182,7 +187,7 @@ Combination of git fetch and git rebase. Does git fetch, and then rebases the cu
 git rebase -i <branch> =
 Interactive rebase, allows you to pick, and reorder commits
 
-pull request = requesting the repo owner to pull your Github repo and merge it to theirs.
+pull request = requesting the repo owner to pull your branch of the codebase (whether forked or the same repo) and merge it to their branch.
 
 
 WHEN CHATGPT WAS WRONG:
@@ -279,5 +284,5 @@ React, Vue (frontend) https://youtu.be/4deVCNJq3qc?si=Fhw_Pw50lX6xfm8y
 ExpressJS(backend)
 CI/CD, Automated Testing
 Agile
-Hosting your app
-Offline VSCode
+Hosting your app ✓
+Offline VSCode ✓

@@ -9,3 +9,6 @@
 19Nov: learned how to use vee-validate. Validated name, email, age, password and confirm password fields for register modal.
 21Nov: Validated country and tos. Slot properties. Rendering multiple errors for password.
 22Nov: Form initial values. Custom Error messages. Validation triggers. Alerts. Refactored Login and Registration forms to separate child components.
+29Nov-04Dec: CITIZENSHIP
+13-18Dec: Hosting my Rostr project.
+22Dec: Implemented account creation and authentication using Firebase. Also implemented user creation in firebase.

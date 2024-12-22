@@ -11,7 +11,7 @@ fetch('URL') // fetch returns a promise that gets fulfilled when an http respons
     return response.json(); //parses the http response object into a JSON (fetch always returns a response object even if it contains a json)
 })
 .then((result) => { //result can also be named anything.
-    console.log(result):
+    console.log(result);
 })
 .catch((error) => {
     console.error(error); // Catch any error that occurred in the chain
